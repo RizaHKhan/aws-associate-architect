@@ -67,27 +67,52 @@ arn:aws:s3:::catgifs/*
 - Large orgs & org merges
 - IAM Roles & Identity Federation fix this (more later)
 
-
 ## IAM Groups
+
 ...are containers for Users
 
-Remember: 
+Remember:
+
 - You cannot log into a group (no credentials).
 - Policies can be added to groups.
 - Users can be part of multiple groups (max 10)
 - There is no 'All Users Group' (trick questions in exam to watch out for)
 - 300 groups per account but can be increased via support ticket
-- Groups are *not* a true identity. They can't be referenced as a principal in a policy
+- Groups are _not_ a true identity. They can't be referenced as a principal in a policy
 
 ## IAM Roles
 
 Users inside and/or outside can make sure of the role.
 
-IAM Roles are *assumed .. you become* that role
+IAM Roles are _assumed .. you become_ that role
 
 IAM Roles can have two types of policies attached.
+
 1. Trust policy
 2. Permissions Policy
 
 Temporary Security Credentials - Access key which are time limited
 
+### When to use IAM Roles
+
+Lambda execution role -> Permissions and Policy
+Web identity federation -> allowing 100's of millions of people access to a AWS resouce.
+
+## Service-linked Roles
+
+- IAM role linked to a _specific AWS service_
+- Predefined by a service
+- providing permissions that a service needs to interact with other AWS services on your behalf
+
+```json
+{
+  "Version": "2012-10-19",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["iam:ListRoles", "iamPassRole"],
+      "Resource": "arn:aws:iam::123123123:role/my-role-for-xyz"
+    }
+  ]
+}
+```
