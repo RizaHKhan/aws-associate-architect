@@ -89,3 +89,5 @@ IAM Roles can have two types of policies attached.
 1. Trust policy
 2. Permissions Policy
 
+Temporary Security Credentials - Access key which are time limited
+
