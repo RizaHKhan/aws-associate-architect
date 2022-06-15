@@ -20,7 +20,7 @@ Parts of a statement:
 
 Explicit Deny -> Explicit Allow -> Default Deny (implicit)
 
-Two types of policies:  Inline Policies
+Two types of policies:Inline Policies
 Creating a policy and applying it to specific account(s). Unique to each identity, therefore not scalable.
 
 Managed Policy
@@ -66,4 +66,26 @@ arn:aws:s3:::catgifs/*
 - Internet-scale applications
 - Large orgs & org merges
 - IAM Roles & Identity Federation fix this (more later)
+
+
+## IAM Groups
+...are containers for Users
+
+Remember: 
+- You cannot log into a group (no credentials).
+- Policies can be added to groups.
+- Users can be part of multiple groups (max 10)
+- There is no 'All Users Group' (trick questions in exam to watch out for)
+- 300 groups per account but can be increased via support ticket
+- Groups are *not* a true identity. They can't be referenced as a principal in a policy
+
+## IAM Roles
+
+Users inside and/or outside can make sure of the role.
+
+IAM Roles are *assumed .. you become* that role
+
+IAM Roles can have two types of policies attached.
+1. Trust policy
+2. Permissions Policy
 
