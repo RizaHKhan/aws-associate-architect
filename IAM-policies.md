@@ -1,7 +1,16 @@
+# IAM Policies
+
 An identity needs to prove to AWS who it is via authentication.
 
 Multiple statements can be in a policy.
 
+``` json
+{
+ "version": 'Foo',
+
+}
+
+```
 Parts of a statement: 
 1. Sid: What the statement does. Arbitrary name
 2. Effect: Allow/Deny. Deny takes precedence over any other effect.
