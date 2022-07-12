@@ -1,0 +1,4 @@
+Resources:
+  WebServer:
+    Type: AWS::EC2::Instance
+    
